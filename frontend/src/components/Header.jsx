@@ -1,14 +1,20 @@
 import React from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import logo from '../assets/logo.png'
 
 const Header = () => {
   return (
     <header>
         <Navbar bg='dark' variant='dark' expand='md' collapseOnSelect>
             <Container>
-                <Navbar.Brand href='/'>
-                    MaShop
+                <Navbar.Brand href='/' className='p-0'>
+                    <img
+                        src={logo}
+                        alt="MaShop"
+                        className='d-inline-block align-top'
+                        style={{ maxHeight: '80px', width: 'auto', height: 'auto', padding: 0, margin: 0 }}
+                    />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls='basic-navbar-nav' />
                 <Navbar.Collapse id='basic-navbar-nav'>
