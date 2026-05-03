@@ -15,6 +15,7 @@
   "author": "Anouar Elissaoui",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "colors": "^1.4.0",
     "express": "^5.2.1",
     "mongoose": "^9.6.1"
