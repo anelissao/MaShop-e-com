@@ -48,3 +48,13 @@ const destroyData = async () => {
     process.exit(1);
   }
 };
+
+if (process.argv[2] === '-d') {
+  destroyData();
+} else if (process.argv[2] === '-i') {
+  importData();
+} else {
+  console.log(
+    `${process.argv[2]} is invalid argument, use -d for destroyin data, and -i to import data`,
+  );
+}
