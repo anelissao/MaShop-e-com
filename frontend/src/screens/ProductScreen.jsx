@@ -8,12 +8,8 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 
 const ProductScreen = () => {
-  const { id, productId } = useParams();
-  const {
-    data: product,
-    isLoading,
-    error,
-  } = useGetProductsByIdQuery(productId);
+  const { id } = useParams();
+  const { data: product, isLoading, error } = useGetProductsByIdQuery(id);
 
   return (
     <>
