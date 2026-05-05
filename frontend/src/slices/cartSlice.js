@@ -4,6 +4,10 @@ const initialState = localStorage.getItem('cart')
   ? JSON.parse(localStorage.getItem('cart'))
   : { cartItems: [] };
 
+const addDecimals = (num) => {
+  return (Math.round(num * 100) / 100).toFixed(2);
+};
+
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -20,8 +24,10 @@ const cartSlice = createSlice({
       } else {
         state.cartItems = [...state.cartItems, item];
       }
-      state.itemsPrice = state.cartItems.reduce(
-        (acc, (item) => acc + item.price * item, qty, 0),
+      state.itemsPrice = addDecimals(
+        state.cartItems.reduce(
+          (acc, (item) => acc + item.price * item, qty, 0),
+        ),
       );
     },
   },
