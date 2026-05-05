@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { json } from 'express';
 
 const initialState = localStorage.getItem('cart')
   ? JSON.parse(localStorage.getItem('cart'))
@@ -39,8 +40,12 @@ const cartSlice = createSlice({
         Number(state.shippingPrice) +
         Number(state.taxPrice)
       ).toFixed(2);
+
+      localStorage.setItem('cart', JSON.stringify(state));
     },
   },
 });
+
+export const { addToCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
