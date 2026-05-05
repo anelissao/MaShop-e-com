@@ -4,6 +4,7 @@ import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import Rating from '../components/Rating';
 import { Link } from 'react-router-dom';
 import { useGetProductsByIdQuery } from '../slices/productsApiSlice';
+import Loader from '../components/Loader';
 
 const ProductScreen = () => {
   const { id, productId } = useParams();
@@ -19,7 +20,7 @@ const ProductScreen = () => {
         Return to Home Page
       </Link>
       {isLoading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : error ? (
         <div>{error?.data?.message || error.error}</div>
       ) : (
