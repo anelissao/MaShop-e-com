@@ -29,6 +29,7 @@ const cartSlice = createSlice({
           (acc, (item) => acc + item.price * item, qty, 0),
         ),
       );
+      state.shippingPrice = addDecimals(state.itemsPrice > 100 ? 0 : 10);
     },
   },
 });
