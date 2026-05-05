@@ -5,6 +5,7 @@ import Rating from '../components/Rating';
 import { Link } from 'react-router-dom';
 import { useGetProductsByIdQuery } from '../slices/productsApiSlice';
 import Loader from '../components/Loader';
+import Message from '../components/Message';
 
 const ProductScreen = () => {
   const { id, productId } = useParams();
@@ -22,7 +23,9 @@ const ProductScreen = () => {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <div>{error?.data?.message || error.error}</div>
+        <Message variant="danger">
+          {error?.data?.message || error.error}
+        </Message>
       ) : (
         <>
           <Row>
