@@ -20,6 +20,9 @@ const cartSlice = createSlice({
       } else {
         state.cartItems = [...state.cartItems, item];
       }
+      state.itemsPrice = state.cartItems.reduce(
+        (acc, (item) => acc + item.price * item, qty, 0),
+      );
     },
   },
 });
