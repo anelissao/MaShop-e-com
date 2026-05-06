@@ -28,6 +28,11 @@ const CartScreen = () => {
   const removeFromCartHandler = async (id) => {
     dispatch(removeFromCart(id));
   };
+
+  const checkoutHandler = () => {
+    navigate('/login?redirect=/shipping')
+  }
+  
   return (
     <Row>
       <Col md={8}>
@@ -38,7 +43,7 @@ const CartScreen = () => {
           </Message>
         ) : (
           <ListGroup variant="flush">
-            {cartItems.map((item) => {
+            {cartItems.map((item) => (
               <ListGroup.Item key={item._id}>
                 <Row>
                   <Col md={2}>
@@ -73,15 +78,15 @@ const CartScreen = () => {
                     </Button>
                   </Col>
                 </Row>
-              </ListGroup.Item>;
-            })}
+              </ListGroup.Item>
+            ))}
           </ListGroup>
         )}
       </Col>
       <Col md={4}>
         <Card>
           <ListGroup variant="flush">
-            <ListGroup.item>
+            <ListGroup.Item>
               <h2>
                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
                 Items
@@ -90,16 +95,17 @@ const CartScreen = () => {
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
-            </ListGroup.item>
-            <ListGroup.item>
+            </ListGroup.Item>
+            <ListGroup.Item>
               <Button
                 type="button"
                 className="btn-block"
                 disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
               >
                 Proceed To Checkout
               </Button>
-            </ListGroup.item>
+            </ListGroup.Item>
           </ListGroup>
         </Card>
       </Col>
