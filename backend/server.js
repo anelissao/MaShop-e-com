@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
@@ -14,6 +15,9 @@ const app = express();
 // body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//cookie parser middlware
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
   res.send('Api is running');
