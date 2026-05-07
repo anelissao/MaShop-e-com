@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Button, Row, Col } from '../components/FormContainer';
+import { Form, Button, Row, Col } from 'react-bootstrap';
+import FormContainer from '../components/FormContainer';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
